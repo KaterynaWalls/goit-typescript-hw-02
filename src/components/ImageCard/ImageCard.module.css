@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.imgCard {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.likesContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(154, 140, 233);
+  color: rgb(55, 23, 92);
+  border: 2px solid #cbf784;
+  border-radius: 50px;
+  padding: 5px 8px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-style: italic;
+}
+
+.likesContainer:hover {
+  background-color: #cbf784;
+  color: rgb(154, 140, 233);
+  transform: scale(1.05);
+}
+
+.likesContainer:active {
+  transform: scale(0.95);
+}
+
+.likesContainer p {
+  margin: 0;
+}

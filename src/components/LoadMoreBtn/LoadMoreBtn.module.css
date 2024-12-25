@@ -1,0 +1,31 @@
+/* LoadMoreBtn.module.css */
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.LoadMoreBtn {
+  background-color: #cbf784;
+  color: rgb(55, 23, 92);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.LoadMoreBtn:hover {
+  background-color: rgb(154, 140, 233);
+  color: #cbf784;
+  transform: scale(1.1);
+}
+
+.LoadMoreBtn:disabled {
+  background-color: #d3d3d3;
+  color: #808080;
+  cursor: not-allowed;
+}

@@ -1,0 +1,13 @@
+* {
+}
+body {
+  margin: 0;
+  font-family: cursive;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.galleryContainer {
+  min-height: 100vh; /* Встановлює мінімальну висоту контейнера */
+}

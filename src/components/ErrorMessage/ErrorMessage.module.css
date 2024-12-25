@@ -1,0 +1,32 @@
+.defaultError,
+.notFound,
+.networkError,
+.serverError {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  width: 50%;
+  max-width: 500px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: italic;
+  border-radius: 90px 0px 90px 30px;
+  background-color: #cbf784;
+  color: rgb(55, 14, 71);
+}
+
+.defaultError p,
+.notFound p,
+.networkError p,
+.serverError p {
+  margin: 0;
+  padding: 0;
+}
+
+.serverError {
+  background-color: #c95959;
+  color: #df9d9d;
+}
