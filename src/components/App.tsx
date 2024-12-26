@@ -9,7 +9,7 @@ import ErrorMessage from "./ErrorMessage/ErrorMessage.js";
 import ImageModal from "./ImageModal/ImageModal.js";
 import { fetchImages } from "../services/api.jsx";
 import { nanoid } from "nanoid";
-import { ImageData } from "../types.ts";
+import { ImageData } from "../types";
 
 import s from "./App.module.css";
 
