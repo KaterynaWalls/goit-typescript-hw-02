@@ -2,6 +2,9 @@ import axios from "axios";
 
 const BASE_URL = "https://api.unsplash.com";
 const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+if (!ACCESS_KEY) {
+  console.error("ACCESS_KEY is missing!");
+}
 interface UnsplashImage {
   id: string;
   urls: {
