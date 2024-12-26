@@ -9,19 +9,14 @@ import ErrorMessage from "./ErrorMessage/ErrorMessage.js";
 import ImageModal from "./ImageModal/ImageModal.js";
 import { fetchImages } from "../services/api.jsx";
 import { nanoid } from "nanoid";
+import { ImageData } from "../types.ts";
+
 import s from "./App.module.css";
 
 interface ModalData {
   isOpen: boolean;
   largeImageUrl: string;
   altText: string;
-}
-
-interface ImageData {
-  id: string;
-  smallUrl: string;
-  largeUrl: string;
-  name: string;
 }
 
 type ErrorType = "not_found" | "network" | "server" | "";
@@ -54,8 +49,7 @@ const App: React.FC = () => {
 
         const { images: newImages, totalPages } = await fetchImages(
           query,
-          page,
-          signal
+          page
         );
 
         if (newImages.length === 0) {
