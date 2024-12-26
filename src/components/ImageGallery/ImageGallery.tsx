@@ -1,14 +1,7 @@
 import React, { useMemo } from "react";
 import ImageCard from "../ImageCard/ImageCard";
 import s from "./ImageGallery.module.css";
-
-interface ImageData {
-  id: string;
-  smallUrl: string;
-  largeUrl: string;
-  description?: string;
-  likes?: number;
-}
+import { ImageData } from "../../types";
 
 interface ImageGalleryProps {
   images: ImageData[];
