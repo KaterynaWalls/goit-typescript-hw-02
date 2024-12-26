@@ -1,9 +1,11 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
-import PropTypes from "prop-types";
 import styles from "./ErrorMessage.module.css";
 
-const ErrorMessage = ({ errorType }) => {
+interface ErrorMessageProps {
+  errorType: "not_found" | "network" | "server" | string;
+}
+
+const ErrorMessage: React.FC<ErrorMessageProps> = ({ errorType }) => {
   const errorConfig = {
     not_found: {
       message:
@@ -27,17 +29,14 @@ const ErrorMessage = ({ errorType }) => {
     },
   };
 
-  const { message, className } = errorConfig[errorType] || errorConfig.default;
+  const { message, className } =
+    errorConfig[errorType as keyof typeof errorConfig] || errorConfig.default;
 
   return (
     <div className={className}>
       <p>{message}</p>
     </div>
   );
-};
-
-ErrorMessage.propTypes = {
-  errorType: PropTypes.string.isRequired,
 };
 
 export default ErrorMessage;

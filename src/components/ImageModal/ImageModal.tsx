@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import Modal from "react-modal";
 import s from "./ImageModal.module.css";
 
+interface ImageModalProps {
+  isModalOpen: boolean;
+  closeModal: () => void;
+  largeImageUrl: string;
+  altText?: string;
+}
 Modal.setAppElement("#root");
 
-const ImageModal = ({ isModalOpen, closeModal, largeImageUrl, altText }) => {
+const ImageModal: React.FC<ImageModalProps> = ({
+  isModalOpen,
+  closeModal,
+  largeImageUrl,
+  altText,
+}) => {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const closeWithAnimation = () => {
@@ -13,7 +23,7 @@ const ImageModal = ({ isModalOpen, closeModal, largeImageUrl, altText }) => {
     setTimeout(() => {
       setIsFadingOut(false);
       closeModal();
-    }, 500); // Тривалість анімації 0.5s
+    }, 500);
   };
 
   if (!largeImageUrl) {
@@ -34,20 +44,13 @@ const ImageModal = ({ isModalOpen, closeModal, largeImageUrl, altText }) => {
           alt={altText || "Image"}
           className={s.image}
           onClick={(e) => {
-            e.stopPropagation(); // Щоб уникнути подвійного закриття
+            e.stopPropagation();
             closeWithAnimation();
           }}
         />
       </div>
     </Modal>
   );
-};
-
-ImageModal.propTypes = {
-  isModalOpen: PropTypes.bool.isRequired,
-  closeModal: PropTypes.func.isRequired,
-  largeImageUrl: PropTypes.string.isRequired,
-  altText: PropTypes.string,
 };
 
 export default ImageModal;

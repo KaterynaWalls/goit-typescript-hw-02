@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import SearchBar from "./SearchBar/SearchBar.jsx";
-import ImageGallery from "./ImageGallery/ImageGallery.jsx";
-import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn.jsx";
-import Loader from "./Loader/Loader.jsx";
-import ErrorMessage from "./ErrorMessage/ErrorMessage.jsx";
-import ImageModal from "./ImageModal/ImageModal.jsx";
+import SearchBar from "./SearchBar/SearchBar.js";
+import ImageGallery from "./ImageGallery/ImageGallery.js";
+import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn.js";
+import Loader from "./Loader/Loader.js";
+import ErrorMessage from "./ErrorMessage/ErrorMessage.js";
+import ImageModal from "./ImageModal/ImageModal.js";
 import { fetchImages } from "../services/api.jsx";
 import { nanoid } from "nanoid";
 import s from "./App.module.css";
 
-const App = () => {
+const App: React.FC = () => {
   const [query, setQuery] = useState("");
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
@@ -133,20 +133,14 @@ const App = () => {
       <SearchBar onSubmit={handleSearch} />
       {renderContent()}
       {renderLoadMoreBtn()}
-      {/* {isLoading && <Loader />}
-      {!isLoading && isError && <ErrorMessage errorType={errorType} />}
-      {!isLoading && !isError && (
-        <ImageGallery images={images} onImageClick={handleImageClick} />
-      )} */}
+
       <ImageModal
         isModalOpen={modalData.isOpen}
         closeModal={closeModal}
         largeImageUrl={modalData.largeImageUrl}
         altText={modalData.altText}
       />
-      {/* {!isLoading && images.length > 0 && totalPages > page && (
-        <LoadMoreBtn loadMore={() => setPage((prevPage) => prevPage + 1)} />
-      )} */}
+
       <Toaster position="top-right" />
     </div>
   );

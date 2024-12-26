@@ -1,8 +1,18 @@
-import PropTypes from "prop-types";
-import { useState } from "react";
+import React, { useState } from "react";
 import s from "./ImageCard.module.css";
 
-const ImageCard = ({ image, openModal }) => {
+interface Image {
+  largeUrl: string;
+  smallUrl: string;
+  description?: string;
+  likes?: number;
+}
+
+interface ImageCardProps {
+  image: Image;
+  openModal?: (image: { url: string; name: string }) => void;
+}
+const ImageCard: React.FC<ImageCardProps> = ({ image, openModal }) => {
   const [likes, setLikes] = useState(image.likes || 0);
   const [isLiked, setIsLiked] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -55,16 +65,6 @@ const ImageCard = ({ image, openModal }) => {
       </button>
     </div>
   );
-};
-
-ImageCard.propTypes = {
-  image: PropTypes.shape({
-    largeUrl: PropTypes.string.isRequired,
-    smallUrl: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    likes: PropTypes.number,
-  }).isRequired,
-  openModal: PropTypes.func,
 };
 
 export default ImageCard;

@@ -1,7 +1,12 @@
-import PropTypes from "prop-types";
 import s from "./LoadMoreBtn.module.css";
-
-const LoadMoreBtn = ({ loadMore, page, totalPages }) => {
+import React from "react";
+interface LoadBtnProp {
+  loadMore: () => void;
+  label?: string;
+  page: number;
+  totalPages: number;
+}
+const LoadMoreBtn: React.FC<LoadBtnProp> = ({ loadMore, page, totalPages }) => {
   return (
     <div
       className={`${s.btnContainer} ${page >= totalPages ? s.disabled : ""}`}
@@ -20,12 +25,6 @@ const LoadMoreBtn = ({ loadMore, page, totalPages }) => {
       </button>
     </div>
   );
-};
-
-LoadMoreBtn.propTypes = {
-  loadMore: PropTypes.func.isRequired,
-  page: PropTypes.number.isRequired,
-  totalPages: PropTypes.number.isRequired,
 };
 
 export default LoadMoreBtn;
